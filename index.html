@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+
+<script>
+    function callApi(){		
+        fetch('https://animechan.vercel.app/api/random')
+        .then(response => response.json())
+        .then(json => pegaDados(json));        
+    }
+   
+   function pegaDados(json){
+		console.log(json);
+		document.getElementById('quote').append(json.quote);
+		document.getElementById('character').append(json.character);
+		document.getElementById('series').append(json.anime);	
+   }
+
+   function eraseString(){
+              
+        
+       
+   }
+
+</script>
+
+<body>
+    <h1>Veja a citação de um personagem</h1>
+    <p>
+        <button onclick = "callApi();">Quero uma citação!</button>
+    </p>
+
+	<h2>Série:</h2>
+	<p id="series"></p>		    
+
+    <h2>Personagem:</h2>
+	<p id="character"> </p>		
+
+    <h2>Citação: </h2>
+	<p id="quote"></p>		
+
+</body>
+</html>
